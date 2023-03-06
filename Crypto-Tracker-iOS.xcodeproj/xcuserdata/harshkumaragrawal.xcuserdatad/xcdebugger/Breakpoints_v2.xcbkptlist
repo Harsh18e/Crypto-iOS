@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "851AD000-81DA-448C-952E-290FF6F690F8"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9D20F281-4A2B-47AA-A4D2-240C30D33B93"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Crypto-Tracker-iOS/Cells/TrendingCollectionViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "setupCell(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9D20F281-4A2B-47AA-A4D2-240C30D33B93 - dd23e4adcabddcbd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Crypto_Tracker_iOS.TrendingCollectionViewCell.setupCell(Crypto_Tracker_iOS.Coin) -&gt; ()"
+                  moduleName = "Crypto-Tracker-iOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/harshkumaragrawal/Desktop/Crypto-Tracker-iOS/Crypto-Tracker-iOS/Cells/TrendingCollectionViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "164">
+               </Location>
+               <Location
+                  uuid = "9D20F281-4A2B-47AA-A4D2-240C30D33B93 - dd23e4adcabddcbd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Crypto_Tracker_iOS.TrendingCollectionViewCell.setupCell(Crypto_Tracker_iOS.Coin) -&gt; ()"
+                  moduleName = "Crypto-Tracker-iOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/harshkumaragrawal/Desktop/Crypto-Tracker-iOS/Crypto-Tracker-iOS/Cells/TrendingCollectionViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "212">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "730CEA32-2D7D-4081-9251-0B01486EE251"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Crypto-Tracker-iOS/Cells/TrendingCollectionViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "setupCell(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B88A22EC-E077-473A-AE85-2C8214B7DFDF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Crypto-Tracker-iOS/Cells/TrendingCollectionViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "setupCell(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
