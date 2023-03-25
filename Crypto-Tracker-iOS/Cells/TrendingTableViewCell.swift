@@ -35,9 +35,15 @@ extension TrendingTableViewCell: UICollectionViewDataSource, UICollectionViewDel
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! TrendingCollectionViewCell
-        if let topCoinsData = viewModel?.getTopCoinsData(indexPath.row) {
-            cell.setupCell(topCoinsData)
+        if let topCoinData = viewModel?.getTopCoinsData(indexPath.row) {
+            cell.setupCell(topCoinData,viewModel?.getImageAtId(topCoinData.id))
         }
+        // Set up shadow layer
+        cell.layer.shadowColor = UIColor.black.cgColor
+        cell.layer.shadowOffset = CGSize(width: 0, height: 10)
+        cell.layer.shadowOpacity = 0.3
+        cell.layer.shadowRadius = 10
+        cell.layer.masksToBounds = false
         return cell
     }
 }

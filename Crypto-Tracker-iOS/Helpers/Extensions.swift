@@ -14,6 +14,12 @@ extension Double {
     }
 }
 
+extension UITableView {
+    func dequeueReusableHeaderFooterView<T: UIView>(_ viewClass: T.Type) -> T {
+        return self.dequeueReusableHeaderFooterView(withIdentifier: viewClass.getCellIdentifier()) as! T
+    }
+}
+
 extension UIView {
     
     // MARK: - Class Methods
@@ -153,5 +159,142 @@ public class CustomUIView: UIView {
             gShadowOffsetHeight = shadowOHeight
             layer.shadowOffset = CGSize(width: gShadowOffsetWidth, height: gShadowOffsetHeight)
         }
+    }
+}
+
+@IBDesignable
+class CustomUIButton: UIButton {
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+
+    // MARK: - IBInspectables
+    @IBInspectable var cornerRadius: CGFloat = 5 {
+        didSet {
+            layer.cornerRadius = cornerRadius
+            layer.masksToBounds = cornerRadius > 0
+        }
+    }
+
+    @IBInspectable var borderColor: UIColor = UIColor.clear {
+        didSet {
+            layer.borderColor = borderColor.cgColor
+        }
+    }
+
+    @IBInspectable var selectedBorderColor: UIColor = UIColor.clear
+    @IBInspectable var disabledBorderColor: UIColor = UIColor.clear
+
+    @IBInspectable var borderWidth: CGFloat = 0.0 {
+        didSet {
+            layer.borderWidth = borderWidth
+        }
+    }
+
+    func centerTextAndImage(spacing: CGFloat) {
+        let insetAmount = spacing / 2
+        let writingDirection = UIApplication.shared.userInterfaceLayoutDirection
+        let factor: CGFloat = writingDirection == .leftToRight ? 1 : -1
+
+        self.imageEdgeInsets = UIEdgeInsets(top: 0, left: -insetAmount*factor, bottom: 0, right: insetAmount*factor)
+        self.titleEdgeInsets = UIEdgeInsets(top: 0, left: insetAmount*factor, bottom: 0, right: -insetAmount*factor)
+        self.contentEdgeInsets = UIEdgeInsets(top: 0, left: insetAmount, bottom: 0, right: insetAmount)
+    }
+
+    override var isSelected: Bool {
+        didSet {
+            if isSelected {
+                layer.borderColor = selectedBorderColor.cgColor
+                imageView?.tintColor = selectedBorderColor
+            } else {
+                layer.borderColor = borderColor.cgColor
+                imageView?.tintColor = currentTitleColor
+            }
+        }
+    }
+
+    override var isEnabled: Bool {
+        didSet {
+            if isEnabled {
+                layer.borderColor = borderColor.cgColor
+            } else {
+                layer.borderColor = disabledBorderColor.cgColor
+            }
+        }
+    }
+
+    @objc func set(image: UIImage?, title: String, titlePosition: UIView.ContentMode, additionalSpacing: CGFloat, state: UIControl.State) {
+        imageView?.contentMode = .center
+        setImage(image, for: state)
+
+        positionLabelRespectToImage(title: title, position: titlePosition, spacing: additionalSpacing)
+
+        titleLabel?.contentMode = .center
+        setTitle(title, for: state)
+    }
+
+    @objc func set(image: UIImage?, attributedTitle title: NSAttributedString, at position: UIView.ContentMode, width spacing: CGFloat, state: UIControl.State) {
+        imageView?.contentMode = .center
+        setImage(image, for: state)
+
+        adjust(title: title, at: position, with: spacing)
+
+        titleLabel?.contentMode = .center
+        setAttributedTitle(title, for: state)
+    }
+
+    // MARK: - Private Methods
+    private func adjust(title: NSAttributedString, at position: UIView.ContentMode, with spacing: CGFloat) {
+        let imageRect: CGRect = self.imageRect(forContentRect: frame)
+        let titleSize = title.size()
+
+        arrange(titleSize: titleSize, imageRect: imageRect, atPosition: position, withSpacing: spacing)
+    }
+
+    private func adjust(title: NSString, at position: UIView.ContentMode, with spacing: CGFloat) {
+        let imageRect: CGRect = self.imageRect(forContentRect: frame)
+
+        // Use predefined font, otherwise use the default
+        let titleFont: UIFont = titleLabel?.font ?? UIFont()
+        let titleSize: CGSize = title.size(withAttributes: [NSAttributedString.Key.font: titleFont])
+
+        arrange(titleSize: titleSize, imageRect: imageRect, atPosition: position, withSpacing: spacing)
+    }
+
+    private func positionLabelRespectToImage(title: String, position: UIView.ContentMode, spacing: CGFloat) {
+        let imageRect: CGRect = self.imageRect(forContentRect: frame)
+
+        // Use predefined font, otherwise use the default
+        let titleFont: UIFont = titleLabel?.font ?? UIFont()
+        let titleSize: CGSize = title.size(withAttributes: [NSAttributedString.Key.font: titleFont])
+
+        arrange(titleSize: titleSize, imageRect: imageRect, atPosition: position, withSpacing: spacing)
+    }
+
+    private func arrange(titleSize: CGSize, imageRect: CGRect, atPosition position: UIView.ContentMode, withSpacing spacing: CGFloat) {
+        var titleInsets: UIEdgeInsets
+        var imageInsets: UIEdgeInsets
+
+        switch (position) {
+        case .top:
+            titleInsets = UIEdgeInsets(top: -(imageRect.height + titleSize.height + spacing), left: -(imageRect.width), bottom: 0, right: 0)
+            imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -titleSize.width)
+        case .bottom:
+            titleInsets = UIEdgeInsets(top: (imageRect.height + titleSize.height + spacing), left: -(imageRect.width), bottom: 0, right: 0)
+            imageInsets = UIEdgeInsets(top: 0 + spacing + -6, left: 0, bottom: 0, right: -titleSize.width)
+        case .left:
+            titleInsets = UIEdgeInsets(top: 0, left: -(imageRect.width * 2), bottom: 0, right: 0)
+            imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -(titleSize.width * 2 + spacing))
+        case .right:
+            titleInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -spacing)
+            imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        default:
+            titleInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        }
+
+        titleEdgeInsets = titleInsets
+        imageEdgeInsets = imageInsets
     }
 }

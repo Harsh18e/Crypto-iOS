@@ -8,6 +8,7 @@
 import UIKit
 import Lottie
 import Foundation
+import GoogleSignIn
 
 class LoginViewController: UIViewController {
 
@@ -35,6 +36,7 @@ class LoginViewController: UIViewController {
         statusViewFrame = statusView.center
         animationManager?.animateUpAndDown(credLogo)
         animationManager?.startBlinkTimer(downArrow)
+        apiStatus.isHidden = true
     }
     
     // MARK: Private Methods
@@ -82,23 +84,25 @@ class LoginViewController: UIViewController {
     }
     
     // MARK: Making Network Call
-    private func makeNetworkCall() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
-            NetworkManager.shared.apiCall(self.isSuccessEnabled) { [weak self] result in
-                
-                guard let strongSelf = self else { return }
-                
-                switch result {
-                case .success(let response):
-                    print(response)
-                    
-                case .failure(.unableToParse):
-                    strongSelf.handleResult(false)
-                    
-                case .failure(.apiError):
-                    strongSelf.handleResult(false)
-                }
-            }
+    private func requestLogin() {
+        let clientID = "281366402228-f0vi7p1g1s8nvu5fm22vpqmf55i56t5q.apps.googleusercontent.com"
+           
+        // Create Google Sign In configuration object.
+        let config = GIDConfiguration(clientID: clientID)
+        GIDSignIn.sharedInstance.configuration = config
+       
+        GIDSignIn.sharedInstance.signIn( withPresenting: self) { signInResult, error in
+            guard error == nil else { return }
+            
+           // If sign in succeeded, display the app's main content View.
+            UserDefaults.standard.set(true, forKey: Constants.LOGINSTATUS)
+
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: String(describing: MainViewController.self))
+            let navigationController = UINavigationController(rootViewController: vc)
+            navigationController.modalPresentationStyle = .fullScreen
+            self.present(navigationController, animated: true)
+            
         }
     }
     
@@ -158,7 +162,7 @@ extension LoginViewController {
                 strongSelf.credLogo.isHidden = true
                 strongSelf.animationManager?.startLoadingAnimation(strongSelf.loadingAnimationView)
             }
-            makeNetworkCall()
+            requestLogin()
         } else {
             credLogo.center = logoContainerView.center
             animationManager?.animateUpAndDown(credLogo)

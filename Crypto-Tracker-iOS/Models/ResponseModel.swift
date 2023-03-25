@@ -6,12 +6,13 @@
 //
 
 import Foundation
+import UIKit
 
 typealias CoinList = [Coin]
 
 // MARK: - CoinElement
 struct Coin: Codable {
-    let id, symbol, name: String?
+    let id, symbol, name: String
     let image: String?
     let currentPrice: Double
     let marketCap, marketCapRank: Double?

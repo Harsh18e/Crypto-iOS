@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SectionHeaderView" customModule="Crypto_Tracker_iOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="148"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AWI-Lr-lpE">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="148"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MNd-xx-jts">
+                            <rect key="frame" x="16" y="8" width="343" height="132"/>
+                            <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="MNd-xx-jts" secondAttribute="trailing" constant="16" id="O45-Fi-6f7"/>
+                        <constraint firstAttribute="bottom" secondItem="MNd-xx-jts" secondAttribute="bottom" constant="8" id="Uu5-r1-Grb"/>
+                        <constraint firstItem="MNd-xx-jts" firstAttribute="top" secondItem="AWI-Lr-lpE" secondAttribute="top" constant="8" id="aqO-Tl-24t"/>
+                        <constraint firstItem="MNd-xx-jts" firstAttribute="leading" secondItem="AWI-Lr-lpE" secondAttribute="leading" constant="16" id="yOj-dp-LG4"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="AWI-Lr-lpE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Lx4-ez-94g"/>
+                <constraint firstAttribute="bottom" secondItem="AWI-Lr-lpE" secondAttribute="bottom" id="SO2-2Z-LR2"/>
+                <constraint firstAttribute="trailing" secondItem="AWI-Lr-lpE" secondAttribute="trailing" id="VW3-e4-iiK"/>
+                <constraint firstItem="AWI-Lr-lpE" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="dfV-xH-Hy5"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="titleLabel" destination="MNd-xx-jts" id="OES-ea-iA1"/>
+            </connections>
+            <point key="canvasLocation" x="142.74809160305344" y="-44.366197183098592"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

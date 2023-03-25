@@ -60,6 +60,11 @@
 		F58DF9C129AE4E15009F6966 /* Crypto_Tracker_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58DF9C029AE4E15009F6966 /* Crypto_Tracker_iOSTests.swift */; };
 		F58DF9CB29AE4E15009F6966 /* Crypto_Tracker_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58DF9CA29AE4E15009F6966 /* Crypto_Tracker_iOSUITests.swift */; };
 		F58DF9CD29AE4E15009F6966 /* Crypto_Tracker_iOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58DF9CC29AE4E15009F6966 /* Crypto_Tracker_iOSUITestsLaunchTests.swift */; };
+		F598F7AF29C5573F00EEF1BE /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F598F7AE29C5573F00EEF1BE /* SectionHeaderView.swift */; };
+		F598F7B129C5577100EEF1BE /* SectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F598F7B029C5577100EEF1BE /* SectionHeaderView.xib */; };
+		F59BCA4E29C3EE1F00D2B5FB /* PersistentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59BCA4D29C3EE1F00D2B5FB /* PersistentStorage.swift */; };
+		F59BCA5329C4A37900D2B5FB /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = F59BCA5229C4A37900D2B5FB /* GoogleSignIn */; };
+		F59BCA5529C4A37900D2B5FB /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F59BCA5429C4A37900D2B5FB /* GoogleSignInSwift */; };
 		F5E87E4829B64F34009243A3 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F5E87E4729B64F34009243A3 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
@@ -110,6 +115,9 @@
 		F58DF9C629AE4E15009F6966 /* Crypto-Tracker-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Crypto-Tracker-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F58DF9CA29AE4E15009F6966 /* Crypto_Tracker_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crypto_Tracker_iOSUITests.swift; sourceTree = "<group>"; };
 		F58DF9CC29AE4E15009F6966 /* Crypto_Tracker_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crypto_Tracker_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F598F7AE29C5573F00EEF1BE /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
+		F598F7B029C5577100EEF1BE /* SectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionHeaderView.xib; sourceTree = "<group>"; };
+		F59BCA4D29C3EE1F00D2B5FB /* PersistentStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +130,7 @@
 				F549ABDF29B6817A00604A02 /* FirebaseFirestoreSwift in Frameworks */,
 				F549ABC929B6817900604A02 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				F549ABE129B6817A00604A02 /* FirebaseFunctions in Frameworks */,
+				F59BCA5329C4A37900D2B5FB /* GoogleSignIn in Frameworks */,
 				F549ABBA29B67B4F00604A02 /* Lottie in Frameworks */,
 				F549ABC329B6817900604A02 /* FirebaseAnalytics in Frameworks */,
 				F549ABCF29B6817900604A02 /* FirebaseAuth in Frameworks */,
@@ -139,6 +148,7 @@
 				F549ABC529B6817900604A02 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 				F549ABE729B6817A00604A02 /* FirebaseInAppMessagingSwift-Beta in Frameworks */,
 				F549ABF329B6817A00604A02 /* FirebaseRemoteConfigSwift in Frameworks */,
+				F59BCA5529C4A37900D2B5FB /* GoogleSignInSwift in Frameworks */,
 				F549ABC729B6817900604A02 /* FirebaseAnalyticsSwift in Frameworks */,
 				F549ABCD29B6817900604A02 /* FirebaseAppDistribution-Beta in Frameworks */,
 				F549ABF129B6817A00604A02 /* FirebaseRemoteConfig in Frameworks */,
@@ -175,6 +185,8 @@
 				F52F472B29B60B9C00C25DF1 /* TrendingTableViewCell.xib */,
 				F505487F29B5BCAF00964F2E /* TrendingCollectionViewCell.swift */,
 				F505488029B5BCAF00964F2E /* TrendingCollectionViewCell.xib */,
+				F598F7AE29C5573F00EEF1BE /* SectionHeaderView.swift */,
+				F598F7B029C5577100EEF1BE /* SectionHeaderView.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -244,10 +256,8 @@
 				F552362929B4C8CF004E8303 /* Models */,
 				F549ABB629B6583300604A02 /* Cells */,
 				F552362329B4C756004E8303 /* StoryBoards */,
-				F552361929B3B1F0004E8303 /* NetworkManager.swift */,
-				F552362129B4C14C004E8303 /* PrimaryViewModel.swift */,
+				F59BCA5029C4A0D500D2B5FB /* Managers */,
 				F549ABB729B6585D00604A02 /* Helpers */,
-				F549ABBB29B67BB700604A02 /* AnimationManager.swift */,
 			);
 			path = "Crypto-Tracker-iOS";
 			sourceTree = "<group>";
@@ -267,6 +277,17 @@
 				F58DF9CC29AE4E15009F6966 /* Crypto_Tracker_iOSUITestsLaunchTests.swift */,
 			);
 			path = "Crypto-Tracker-iOSUITests";
+			sourceTree = "<group>";
+		};
+		F59BCA5029C4A0D500D2B5FB /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				F549ABBB29B67BB700604A02 /* AnimationManager.swift */,
+				F552361929B3B1F0004E8303 /* NetworkManager.swift */,
+				F552362129B4C14C004E8303 /* PrimaryViewModel.swift */,
+				F59BCA4D29C3EE1F00D2B5FB /* PersistentStorage.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		F5E1D0C729B5BB6A00084D93 /* Supporting Files */ = {
@@ -327,6 +348,8 @@
 				F549ABF229B6817A00604A02 /* FirebaseRemoteConfigSwift */,
 				F549ABF429B6817A00604A02 /* FirebaseStorage */,
 				F549ABF629B6817A00604A02 /* FirebaseStorageCombine-Community */,
+				F59BCA5229C4A37900D2B5FB /* GoogleSignIn */,
+				F59BCA5429C4A37900D2B5FB /* GoogleSignInSwift */,
 			);
 			productName = "Crypto-Tracker-iOS";
 			productReference = F58DF9A629AE4E14009F6966 /* Crypto-Tracker-iOS.app */;
@@ -404,6 +427,7 @@
 				F5E87E4629B64F34009243A3 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				F549ABB829B67B4F00604A02 /* XCRemoteSwiftPackageReference "lottie-spm" */,
 				F549ABC129B6817900604A02 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				F59BCA5129C4A37900D2B5FB /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = F58DF9A729AE4E14009F6966 /* Products */;
 			projectDirPath = "";
@@ -425,6 +449,7 @@
 				F549ABC029B6803200604A02 /* GoogleService-Info.plist in Resources */,
 				F505488229B5BCAF00964F2E /* TrendingCollectionViewCell.xib in Resources */,
 				F549ABB529B657C400604A02 /* CoinsTableViewCell.xib in Resources */,
+				F598F7B129C5577100EEF1BE /* SectionHeaderView.xib in Resources */,
 				F58DF9B129AE4E14009F6966 /* Main.storyboard in Resources */,
 				F52F472D29B60B9C00C25DF1 /* TrendingTableViewCell.xib in Resources */,
 				F552362029B41F16004E8303 /* Assets.xcassets in Resources */,
@@ -460,9 +485,11 @@
 				F549ABBC29B67BB700604A02 /* AnimationManager.swift in Sources */,
 				F552361A29B3B1F0004E8303 /* NetworkManager.swift in Sources */,
 				F552361729B0D1D2004E8303 /* CoinsTableViewCell.swift in Sources */,
+				F598F7AF29C5573F00EEF1BE /* SectionHeaderView.swift in Sources */,
 				F589B10B29B4E78600F4CD4A /* Extensions.swift in Sources */,
 				F552361C29B3B276004E8303 /* ResponseModel.swift in Sources */,
 				F552362829B4C876004E8303 /* ErrorModel.swift in Sources */,
+				F59BCA4E29C3EE1F00D2B5FB /* PersistentStorage.swift in Sources */,
 				F58DF9AC29AE4E14009F6966 /* SceneDelegate.swift in Sources */,
 				F552362C29B4CE27004E8303 /* Constants.swift in Sources */,
 				F5780D5229B4EFA200D14749 /* LoginViewController.swift in Sources */,
@@ -641,6 +668,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_USE_OPTIMIZATION_PROFILE = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -648,7 +676,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Crypto-Tracker-iOS/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -672,6 +700,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_USE_OPTIMIZATION_PROFILE = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -679,7 +708,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Crypto-Tracker-iOS/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -832,6 +861,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		F59BCA5129C4A37900D2B5FB /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		F5E87E4629B64F34009243A3 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -982,6 +1019,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F549ABC129B6817900604A02 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseStorageCombine-Community";
+		};
+		F59BCA5229C4A37900D2B5FB /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F59BCA5129C4A37900D2B5FB /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		F59BCA5429C4A37900D2B5FB /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F59BCA5129C4A37900D2B5FB /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
 		};
 		F5E87E4729B64F34009243A3 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;

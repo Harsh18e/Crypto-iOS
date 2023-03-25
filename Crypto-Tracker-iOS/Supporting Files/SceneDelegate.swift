@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import GoogleSignIn
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -16,14 +17,50 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        
+        
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: windowScene)
+
+        let rootVC = getInitialViewController()
+        let navigationController = UINavigationController(rootViewController: rootVC)
+        navigationController.viewControllers = [rootVC]
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
+    }
+    
+    func getInitialViewController() -> UIViewController {
+        // Check if the user is logged in
+        // your code to check if the user is logged in
+        GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
+            if error != nil || user == nil {
+              // Show the app's signed-out state.
+                UserDefaults.standard.set(false, forKey: Constants.LOGINSTATUS)
+            } else {
+              // Show the app's signed-in state.
+                UserDefaults.standard.set(true, forKey: Constants.LOGINSTATUS)
+            }
+          }
+        
+        var isLoggedIn = false
+        if UserDefaults.standard.object(forKey: Constants.LOGINSTATUS) != nil {
+            isLoggedIn = UserDefaults.standard.bool(forKey: Constants.LOGINSTATUS)
+        }
+        
+        if isLoggedIn {
+            // If the user is logged in, return the MainViewController
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            return storyboard.instantiateViewController(withIdentifier: "MainViewController")
+        } else {
+            // If the user is not logged in, return the LoginViewController
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            return storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+        }
     }
 
-    func sceneDidDisconnect(_ scene: UIScene) {
-        // Called as the scene is being released by the system.
-        // This occurs shortly after the scene enters the background, or when its session is discarded.
-        // Release any resources associated with this scene that can be re-created the next time the scene connects.
-        // The scene may re-connect later, as its session was not necessarily discarded (see `application:didDiscardSceneSessions` instead).
+    func sceneWillEnterForeground(_ scene: UIScene) {
+        // Called as the scene transitions from the background to the foreground.
+        // Use this method to undo the changes made on entering the background.
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
@@ -36,17 +73,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This may occur due to temporary interruptions (ex. an incoming phone call).
     }
 
-    func sceneWillEnterForeground(_ scene: UIScene) {
-        // Called as the scene transitions from the background to the foreground.
-        // Use this method to undo the changes made on entering the background.
-    }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
+        PersistentStorage.shared.saveContext()
     }
 
-
+    func sceneDidDisconnect(_ scene: UIScene) {
+        // Called as the scene is being released by the system.
+        // This occurs shortly after the scene enters the background, or when its session is discarded.
+        // Release any resources associated with this scene that can be re-created the next time the scene connects.
+        // The scene may re-connect later, as its session was not necessarily discarded (see `application:didDiscardSceneSessions` instead).
+        
+    }
 }
 

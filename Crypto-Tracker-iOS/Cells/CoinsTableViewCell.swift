@@ -23,13 +23,10 @@ class CoinsTableViewCell: UITableViewCell {
         // Initialization code
     }
     
-    func setupCell(_ data: Coin?, _ index: Int) {
-        guard let data = data else { return }
+    func setupCell(_ data: Coin, _ index: Int, _ image: UIImage?) {
         
-        if let imageURL = data.image {
-            coinLogo.kf.setImage(with: URL(string:imageURL))
-        }
-        coinShortName.text = data.symbol?.uppercased()
+        coinLogo.image = image
+        coinShortName.text = data.symbol.uppercased()
         
         if data.priceChangePercentage24H ?? 0 < 0 {
             coinPriceChange.textColor = .red
