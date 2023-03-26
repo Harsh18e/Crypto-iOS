@@ -19,26 +19,26 @@
                 <rect key="frame" x="0.0" y="0.0" width="483" height="86"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Md-rx-nwd" userLabel="Container View">
-                        <rect key="frame" x="0.0" y="0.0" width="483" height="80"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Md-rx-nwd" userLabel="Container View" customClass="CustomUIView" customModule="Crypto_Tracker_iOS" customModuleProvider="target">
+                        <rect key="frame" x="8" y="4" width="467" height="80"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-transparent" translatesAutoresizingMaskIntoConstraints="NO" id="sji-R4-TVV">
-                                <rect key="frame" x="31.666666666666671" y="4" width="45" height="72"/>
+                                <rect key="frame" x="30" y="4" width="45" height="72"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="Ocg-p2-n61"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="giY-Nc-yJ0">
-                                <rect key="frame" x="372.66666666666669" y="22.000000000000004" width="86.333333333333314" height="36.333333333333343"/>
+                                <rect key="frame" x="369" y="22.666666666666668" width="74" height="34.666666666666657"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 14,290.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aeb-lL-KFh">
-                                        <rect key="frame" x="0.0" y="0.0" width="86.333333333333329" height="18"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                        <nil key="textColor"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="74" height="16.333333333333332"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                        <color key="textColor" systemColor="systemGray5Color"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- 18.25%" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xLN-Tb-hEX">
-                                        <rect key="frame" x="0.0" y="22" width="86.333333333333329" height="14.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="20.333333333333332" width="74" height="14.333333333333332"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-MediumItalic" family="Helvetica Neue" pointSize="12"/>
                                         <color key="textColor" name="RedColor"/>
                                         <nil key="highlightedColor"/>
@@ -47,24 +47,24 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mqn-vM-AfV">
-                                <rect key="frame" x="12" y="30" width="7.6666666666666679" height="20.333333333333329"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="12" y="33" width="6" height="14.333333333333336"/>
+                                <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="12"/>
+                                <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="pqt-Cs-4SO">
-                                <rect key="frame" x="86.666666666666671" y="16" width="54.333333333333329" height="48"/>
+                                <rect key="frame" x="85" y="16" width="54.333333333333343" height="48"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BitCoin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUE-C7-22z">
                                         <rect key="frame" x="0.0" y="0.0" width="54.333333333333336" height="28.333333333333332"/>
                                         <fontDescription key="fontDescription" name="MuktaMahee-Bold" family="Mukta Mahee" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nD2-8D-7BB">
                                         <rect key="frame" x="0.0" y="32.333333333333336" width="54.333333333333336" height="15.666666666666664"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                        <color key="textColor" systemColor="systemGray3Color"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -83,13 +83,19 @@
                             <constraint firstItem="sji-R4-TVV" firstAttribute="leading" secondItem="Mqn-vM-AfV" secondAttribute="trailing" constant="12" id="XnD-sO-l3C"/>
                             <constraint firstItem="pqt-Cs-4SO" firstAttribute="centerY" secondItem="9Md-rx-nwd" secondAttribute="centerY" id="maG-O3-YSm"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="9Md-rx-nwd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="38a-fW-EVY"/>
-                    <constraint firstItem="9Md-rx-nwd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="7DK-16-dCJ"/>
-                    <constraint firstAttribute="bottom" secondItem="9Md-rx-nwd" secondAttribute="bottom" id="8pq-Tw-sCe"/>
-                    <constraint firstAttribute="trailing" secondItem="9Md-rx-nwd" secondAttribute="trailing" id="LEc-Mb-MFZ"/>
+                    <constraint firstItem="9Md-rx-nwd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="38a-fW-EVY"/>
+                    <constraint firstItem="9Md-rx-nwd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="7DK-16-dCJ"/>
+                    <constraint firstAttribute="bottom" secondItem="9Md-rx-nwd" secondAttribute="bottom" constant="4" id="8pq-Tw-sCe"/>
+                    <constraint firstAttribute="trailing" secondItem="9Md-rx-nwd" secondAttribute="trailing" constant="8" id="LEc-Mb-MFZ"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -100,8 +106,9 @@
                 <outlet property="coinPrice" destination="Aeb-lL-KFh" id="pOs-Ze-Gaa"/>
                 <outlet property="coinPriceChange" destination="xLN-Tb-hEX" id="t0j-1C-2OC"/>
                 <outlet property="coinShortName" destination="nD2-8D-7BB" id="ENC-lA-k95"/>
+                <outlet property="mainView" destination="9Md-rx-nwd" id="qva-ua-cLh"/>
             </connections>
-            <point key="canvasLocation" x="153.43511450381678" y="33.802816901408455"/>
+            <point key="canvasLocation" x="-459" y="63"/>
         </tableViewCell>
     </objects>
     <resources>
@@ -111,6 +118,12 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

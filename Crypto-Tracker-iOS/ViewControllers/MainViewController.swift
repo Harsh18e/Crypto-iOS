@@ -62,10 +62,8 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "coinCell" , for: indexPath) as! CoinsTableViewCell
-        guard let coinData = viewModel?.getCoinData(indexPath.row) else {
-            return cell
-        }
-        cell.setupCell(coinData, indexPath.row, viewModel?.getImageAtId(coinData.id))
+        
+        cell.setupCell(viewModel, indexPath.row)
         return cell
     }
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -90,10 +88,11 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 //        cell.layer.shadowOpacity = 0.3
 //        cell.layer.shadowRadius = 10
 //        cell.layer.masksToBounds = false
-        headerView.titleLabel.layer.shadowColor = UIColor.black.cgColor
+        headerView.titleLabel.layer.shadowColor = UIColor.systemGray5.cgColor
         headerView.titleLabel.layer.shadowOffset = CGSize(width: 0, height: 4)
         headerView.titleLabel.layer.shadowOpacity = 0.4
         headerView.titleLabel.layer.shadowRadius = 4
+        headerView.titleLabel.textColor = .systemGray6
         
         return headerView
     }

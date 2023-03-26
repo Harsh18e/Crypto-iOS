@@ -5,25 +5,24 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleAspectFit" selectionStyle="default" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="trendingcell" rowHeight="100" id="KGk-i7-Jjw" customClass="TrendingTableViewCell" customModule="Crypto_Tracker_iOS" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="341" height="100"/>
+        <tableViewCell contentMode="scaleAspectFit" selectionStyle="default" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="trendingcell" rowHeight="167" id="KGk-i7-Jjw" customClass="TrendingTableViewCell" customModule="Crypto_Tracker_iOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="353" height="167"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="341" height="100"/>
+                <rect key="frame" x="0.0" y="0.0" width="353" height="167"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rxU-dN-XT1">
-                        <rect key="frame" x="0.0" y="0.0" width="341" height="180"/>
+                        <rect key="frame" x="0.0" y="0.0" width="353" height="180"/>
                         <subviews>
                             <collectionView multipleTouchEnabled="YES" contentMode="center" showsHorizontalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="QQp-pF-3ug">
-                                <rect key="frame" x="0.0" y="0.0" width="341" height="180"/>
-                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <rect key="frame" x="0.0" y="0.0" width="353" height="180"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="a6x-xN-G9e">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -36,7 +35,7 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="QQp-pF-3ug" secondAttribute="bottom" id="KAl-du-HI0"/>
                             <constraint firstAttribute="height" constant="180" id="XgL-Tq-aVR"/>
@@ -46,7 +45,6 @@
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" systemColor="systemOrangeColor"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="rxU-dN-XT1" secondAttribute="bottom" id="OOz-dh-apV"/>
                     <constraint firstAttribute="trailing" secondItem="rxU-dN-XT1" secondAttribute="trailing" id="ZLa-aX-RRu"/>
@@ -58,15 +56,7 @@
             <connections>
                 <outlet property="collectionView" destination="QQp-pF-3ug" id="Wn4-PJ-1q3"/>
             </connections>
-            <point key="canvasLocation" x="78.625954198473281" y="-3.5211267605633805"/>
+            <point key="canvasLocation" x="87.786259541984734" y="20.070422535211268"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-    </resources>
 </document>

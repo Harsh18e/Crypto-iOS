@@ -30,7 +30,7 @@ class TrendingTableViewCell: UITableViewCell {
 
 extension TrendingTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        5
+        10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -39,10 +39,10 @@ extension TrendingTableViewCell: UICollectionViewDataSource, UICollectionViewDel
             cell.setupCell(topCoinData,viewModel?.getImageAtId(topCoinData.id))
         }
         // Set up shadow layer
-        cell.layer.shadowColor = UIColor.black.cgColor
-        cell.layer.shadowOffset = CGSize(width: 0, height: 10)
+        cell.layer.shadowColor = UIColor.green.cgColor
+        cell.layer.shadowOffset = CGSize(width: 6, height: 8)
         cell.layer.shadowOpacity = 0.3
-        cell.layer.shadowRadius = 10
+        cell.layer.shadowRadius = 5
         cell.layer.masksToBounds = false
         return cell
     }

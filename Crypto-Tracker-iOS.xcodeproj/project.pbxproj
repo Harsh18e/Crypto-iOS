@@ -66,6 +66,7 @@
 		F59BCA5329C4A37900D2B5FB /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = F59BCA5229C4A37900D2B5FB /* GoogleSignIn */; };
 		F59BCA5529C4A37900D2B5FB /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F59BCA5429C4A37900D2B5FB /* GoogleSignInSwift */; };
 		F5E87E4829B64F34009243A3 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F5E87E4729B64F34009243A3 /* Kingfisher */; };
+		F5FF697B29CF5515008683E9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FF697A29CF5515008683E9 /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +119,7 @@
 		F598F7AE29C5573F00EEF1BE /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		F598F7B029C5577100EEF1BE /* SectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionHeaderView.xib; sourceTree = "<group>"; };
 		F59BCA4D29C3EE1F00D2B5FB /* PersistentStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStorage.swift; sourceTree = "<group>"; };
+		F5FF697A29CF5515008683E9 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +198,7 @@
 			children = (
 				F552362B29B4CE27004E8303 /* Constants.swift */,
 				F589B10A29B4E78600F4CD4A /* Extensions.swift */,
+				F5FF697A29CF5515008683E9 /* Colors.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 				F552362229B4C14C004E8303 /* PrimaryViewModel.swift in Sources */,
 				F58DF9AE29AE4E14009F6966 /* MainViewController.swift in Sources */,
 				F505488129B5BCAF00964F2E /* TrendingCollectionViewCell.swift in Sources */,
+				F5FF697B29CF5515008683E9 /* Colors.swift in Sources */,
 				F58DF9AA29AE4E14009F6966 /* AppDelegate.swift in Sources */,
 				F549ABBC29B67BB700604A02 /* AnimationManager.swift in Sources */,
 				F552361A29B3B1F0004E8303 /* NetworkManager.swift in Sources */,

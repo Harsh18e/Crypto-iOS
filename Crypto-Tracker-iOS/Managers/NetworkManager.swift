@@ -1,9 +1,7 @@
 //
 //  NetworkManager.swift
 //  Crypto-Tracker-iOS
-//
 //  Created by Harsh Kumar Agrawal on 04/03/23.
-//
 
 import Foundation
 import UIKit
@@ -41,7 +39,6 @@ class NetworkManager {
         return isReachable && (!needsConnection || canConnectWithoutUserInteraction)
     }
 
-    
     func apiCall(_ isSuccess: Bool = true, completion: @escaping (Result<CoinList, NetworkError>) -> Void) {
         
         let urlString = Constants.URL
@@ -63,7 +60,6 @@ class NetworkManager {
             } catch(_) {
                 completion(.failure(.unableToParse))
             }
-            
         }.resume()
     }
     
