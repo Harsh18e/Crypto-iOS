@@ -26,6 +26,9 @@ struct Coin: Codable {
     let atlDate: String?
     let roi: Roi?
     let lastUpdated: String?
+    let sparklineIn7D: SparklineIn7D?
+    let hashingAlgorithm: String?
+    let blockTime: Double?
     
     private enum CodingKeys: String, CodingKey {
         case id, symbol, name, image
@@ -51,6 +54,9 @@ struct Coin: Codable {
         case atlDate = "atl_date"
         case roi
         case lastUpdated = "last_updated"
+        case sparklineIn7D = "sparkline_in_7d"
+        case hashingAlgorithm = "hashing_algorithm"
+        case blockTime = "block_time_in_minutes"
     }
 }
 
@@ -64,4 +70,8 @@ enum Currency: String, Codable {
     case btc = "btc"
     case eth = "eth"
     case usd = "usd"
+}
+
+struct SparklineIn7D: Codable {
+    let price: [Double]?
 }

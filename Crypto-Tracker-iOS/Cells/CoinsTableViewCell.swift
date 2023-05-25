@@ -48,11 +48,13 @@ class CoinsTableViewCell: UITableViewCell {
         gradientLayer.endPoint = CGPoint(x: 8, y: 2) // set the ending point to the right side of the view
         mainView.layer.insertSublayer(gradientLayer, at: 0) // add the gradient layer to the view's layer
         
-        coinPrice.text = "$ " + (data.currentPrice.roundedStringWithTwoDecimals())
+        coinPrice.text = "$ " + (data.currentPrice.convertToShortString())
         coinIndex.text = "\(index+1)"
         coinName.text = data.name
         
-        coinPriceChange.text = (data.priceChangePercentage24H?.roundedStringWithTwoDecimals() ?? "0") + " %"
+        coinPriceChange.text = (data.priceChangePercentage24H?.convertToShortString() ?? "0") + " %"
+        coinShortName.textColor = .whiteGray
+        coinPrice.textColor = .whiteGray
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

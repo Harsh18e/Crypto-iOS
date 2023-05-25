@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol TrendingTableViewCellDelegate {
+    func didSelectCellAtID(_ id: String, _ index: Int)
+}
+
 class TrendingTableViewCell: UITableViewCell {
 
     @IBOutlet weak var collectionView: UICollectionView!
@@ -15,11 +19,14 @@ class TrendingTableViewCell: UITableViewCell {
             collectionView.reloadData()
         }
     }
+    var delegate:TrendingTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         collectionView.register(UINib(nibName: TrendingCollectionViewCell.getNibName(), bundle: nil), forCellWithReuseIdentifier: "collectionCell")
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
+        collectionView.backgroundColor = .black
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -45,5 +52,13 @@ extension TrendingTableViewCell: UICollectionViewDataSource, UICollectionViewDel
         cell.layer.shadowRadius = 5
         cell.layer.masksToBounds = false
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        guard let data = (viewModel?.getTopCoinsData(indexPath.row)) else {return}
+        let coinName = data.id
+        let index = (data.marketCapRank ?? 1) - 1
+        delegate?.didSelectCellAtID(coinName,Int(index))
     }
 }

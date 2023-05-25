@@ -10,5 +10,6 @@ import Foundation
 enum NetworkError: Error {
     case unableToParse
     case apiError
+    case BadURL
 }
 

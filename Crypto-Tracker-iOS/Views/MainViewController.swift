@@ -44,12 +44,11 @@ class MainViewController: UIViewController, ViewModelDelegate {
             tableView.sectionHeaderTopPadding = 0
         }
     }
- 
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 1 { return viewModel?.getCoinsCount() ?? 0 }
+        if section == 1 { return viewModel?.getCoinsCount() ?? 10 }
         else {
             return 1
         }
@@ -59,6 +58,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "trendingcell", for: indexPath) as! TrendingTableViewCell
             cell.viewModel = viewModel
+            cell.delegate = self
             return cell
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "coinCell" , for: indexPath) as! CoinsTableViewCell
@@ -77,24 +77,37 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         if section == 0 {
             title = "Trending Coins"
         } else {
-            title = "Live Prices of Coins"
+            title = "Name                    All Coins                     Price"
         }
         
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SectionHeaderView") as! SectionHeaderView
         headerView.titleLabel.text = title
-//
-//        cell.layer.shadowColor = UIColor.black.cgColor
-//        cell.layer.shadowOffset = CGSize(width: 0, height: 10)
-//        cell.layer.shadowOpacity = 0.3
-//        cell.layer.shadowRadius = 10
-//        cell.layer.masksToBounds = false
         headerView.titleLabel.layer.shadowColor = UIColor.systemGray5.cgColor
         headerView.titleLabel.layer.shadowOffset = CGSize(width: 0, height: 4)
         headerView.titleLabel.layer.shadowOpacity = 0.4
         headerView.titleLabel.layer.shadowRadius = 4
-        headerView.titleLabel.textColor = .systemGray6
+        headerView.titleLabel.textColor = UIColor(hex: "#00DBC6")
         
         return headerView
     }
-   
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let coinName = (viewModel?.getCoinData(indexPath.row)?.id) else {return}
+        didSelectCellAtID(coinName, indexPath.row)
+    }
+}
+
+extension MainViewController: TrendingTableViewCellDelegate {
+    func didSelectCellAtID(_ id: String, _ index: Int) {
+        var url = Constants.coinURL
+        url += id
+        url += Constants.coinEndpoint
+        viewModel?.makeNetworkCall(url)
+        
+        let presentedVC = self.storyboard?.instantiateViewController(withIdentifier: String(describing: DetailsViewController.self)) as! DetailsViewController
+        
+        presentedVC.modalPresentationStyle = .pageSheet
+        presentedVC.modalTransitionStyle = .coverVertical
+        presentedVC.setData(viewModel, index, navigationController!)
+        navigationController?.present(presentedVC, animated: true)
+    }
 }

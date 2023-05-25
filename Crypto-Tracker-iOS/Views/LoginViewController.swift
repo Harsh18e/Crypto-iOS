@@ -60,7 +60,7 @@ class LoginViewController: UIViewController {
     }
     
     private func resetUI() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
             
             guard let strongSelf = self else { return }
             
@@ -69,6 +69,7 @@ class LoginViewController: UIViewController {
             strongSelf.credLogo.isHidden = false
             strongSelf.credLogo.center = strongSelf.logoContainerView.center
             strongSelf.animationManager?.animateUpAndDown(strongSelf.credLogo)
+            strongSelf.animationManager?.stopLoadingAnimation()
             
             UIView.animate(withDuration: 0.8, delay: 0) {
                 strongSelf.statusLabel.transform = CGAffineTransform(translationX: 0, y: 100)
@@ -92,17 +93,19 @@ class LoginViewController: UIViewController {
         GIDSignIn.sharedInstance.configuration = config
        
         GIDSignIn.sharedInstance.signIn( withPresenting: self) { signInResult, error in
-            guard error == nil else { return }
+            guard error == nil else {
+                self.resetUI()
+                return
+            }
             
            // If sign in succeeded, display the app's main content View.
             UserDefaults.standard.set(true, forKey: Constants.LOGINSTATUS)
 
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: String(describing: MainViewController.self))
-            let navigationController = UINavigationController(rootViewController: vc)
+            let vc = storyboard.instantiateViewController(withIdentifier: "MainViewController")
+            let navigationController = CustomNavigationController(rootViewController: vc)
             navigationController.modalPresentationStyle = .fullScreen
             self.present(navigationController, animated: true)
-            
         }
     }
     

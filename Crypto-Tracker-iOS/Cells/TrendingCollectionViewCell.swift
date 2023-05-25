@@ -40,9 +40,9 @@ class TrendingCollectionViewCell: UICollectionViewCell {
         gradientLayer.colors = [UIColor.nightGray.cgColor, priceColor] // set the colors for the gradient
         containerView.layer.insertSublayer(gradientLayer, at: 0) // add the gradient layer to the view's layer
         
-        priceLabel.text = "$ " + (data.currentPrice.roundedStringWithTwoDecimals())
+        priceLabel.text = "$ " + (data.currentPrice.convertToShortString())
         coinName.text = data.name
-        priceChangeLabel.text = (data.priceChangePercentage24H?.roundedStringWithTwoDecimals() ?? "0") + " %"
+        priceChangeLabel.text = (data.priceChangePercentage24H?.convertToShortString() ?? "0") + " %"
     }
 
 }

@@ -39,10 +39,12 @@ class NetworkManager {
         return isReachable && (!needsConnection || canConnectWithoutUserInteraction)
     }
 
-    func apiCall(_ isSuccess: Bool = true, completion: @escaping (Result<CoinList, NetworkError>) -> Void) {
+    func apiCall(_ urlString: String, _ isSuccess: Bool = true, completion: @escaping (Result<Data, NetworkError>) -> Void) {
         
-        let urlString = Constants.URL
-        guard let url = URL(string: urlString) else { return }
+        guard let url = URL(string: urlString) else {
+            completion(.failure(NetworkError.BadURL))
+            return
+        }
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "get"        
@@ -53,13 +55,8 @@ class NetworkManager {
                 completion(.failure(NetworkError.apiError))
                 return
             }
+            completion(.success(data))
             
-            do {
-                let responseData = try JSONDecoder().decode(CoinList.self, from: data)
-                completion(.success(responseData))
-            } catch(_) {
-                completion(.failure(.unableToParse))
-            }
         }.resume()
     }
     

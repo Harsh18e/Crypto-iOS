@@ -31,5 +31,8 @@ extension UIColor {
 
 extension UIColor {
     static let nightGray = UIColor(hex: "#101010", alpha: 1)!
-    
+    static let whiteGray = UIColor(hex: "#BEBEBE")!
+    static let purpleGray = UIColor(hex: "#220F25")!
+    static let maroon = UIColor(hex: "EB408D")!
+    static let lightPink = UIColor(hex: "FACFFC")!
 }

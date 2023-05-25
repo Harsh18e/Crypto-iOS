@@ -9,9 +9,37 @@ import Foundation
 import UIKit
 
 extension Double {
-    func roundedStringWithTwoDecimals() -> String {
-        return String(format: "%.2f", self)
-    }
+    
+    func convertToShortString() -> String {
+            let suffixes = ["", "K", "M", "B", "T"]
+            let smallSuffixes = ["m", "μ", "n", "p", "f", "a", "z", "y"]
+            
+            var value = self
+            var suffixIndex = 0
+            
+            // Check if the value is smaller than 0.01
+            if abs(value) < 0.01 {
+                while abs(value) < 0.01 && suffixIndex < smallSuffixes.count {
+                    value *= 1000
+                    suffixIndex += 1
+                }
+                
+                let formattedValue = String(format: "%.2f", value)
+                let suffix = smallSuffixes[suffixIndex - 1]
+                
+                return "\(formattedValue)\(suffix)"
+            } else {
+                while abs(value) >= 1000 && suffixIndex < suffixes.count - 1 {
+                    value /= 1000
+                    suffixIndex += 1
+                }
+                
+                let formattedValue = String(format: "%.2f", value)
+                let suffix = suffixes[suffixIndex]
+                
+                return "\(formattedValue)\(suffix)"
+            }
+        }
 }
 
 extension UITableView {
@@ -30,9 +58,24 @@ extension UIView {
     class func getCellIdentifier() -> String {
         return getNibName()
     }
+    
+    func loadViewFromNib (nibName: String) -> UIView? {
+        let bundle = Bundle(for: type(of: self))
+        let nib = UINib (nibName: nibName, bundle: nil)
+        return nib.instantiate(withOwner: self, options: nil).first as? UIView
+    }
 }
 
 extension UIImageView {
+    
+    func setFlippedSystemSymbolImage(systemSymbol: String, tintColor: UIColor? = nil) {
+            if let systemImage = UIImage(systemName: systemSymbol)?.withRenderingMode(.alwaysTemplate) {
+                self.image = systemImage
+                self.transform = CGAffineTransform(scaleX: 1.0, y: -1.0)
+                self.tintColor = tintColor ?? self.tintColor
+            }
+        }
+    
     func downloadImage(from url: URL, _ isSame: Bool)
     {
         if !isSame {
@@ -296,5 +339,44 @@ class CustomUIButton: UIButton {
 
         titleEdgeInsets = titleInsets
         imageEdgeInsets = imageInsets
+    }
+}
+extension String {
+    func convertToCustomDateFormat() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        guard let date = dateFormatter.date(from: self) else {
+            return self
+        }
+        dateFormatter.dateFormat = "dd/MM"
+        return dateFormatter.string(from: date)
+    }
+    
+    func toDate() -> Date? {
+           let dateFormatter = ISO8601DateFormatter()
+           return dateFormatter.date(from: self)
+       }
+}
+
+extension Date {
+    func toDayMonthString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM"
+        return dateFormatter.string(from: self)
+    }
+}
+
+
+extension Array {
+    subscript (safe index: Int) -> Element? {
+        return indices ~= index ? self[index]: nil
+    }
+
+    mutating func insertSafe(_ element: Element, at index: Int) {
+        if self.count >= index {
+            self.insert(element, at: index)
+        } else {
+            self.insert(element, at: self.count)
+        }
     }
 }
