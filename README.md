@@ -7,11 +7,11 @@ Crypto Tracker App is an iOS application that allows you to track cryptocurrency
 ## Screenshots
 
 <img width="300" alt="Screenshot-01" src="https://github.com/Harsh18e/Crypto-iOS/assets/51875128/72a3ae90-ec60-4016-a141-f6f83a1110e4">
-<img width="300" alt="Screenshot-02" src="https://github.com/Harsh18e/Crypto-iOS/assets/51875128/7d647664-4f7c-45d8-abdb-c12cd362e4c1">
+<img width="300" alt="Screenshot-04" src="https://github.com/Harsh18e/Crypto-iOS/assets/51875128/c5234275-5200-4016-92b7-14725a04b688">
 <img width="300" alt="Screenshot-06" src="https://github.com/Harsh18e/Crypto-iOS/assets/51875128/bb6bb487-1bed-4826-ba60-bdb9eae5cfb2">
 <img width="300" alt="Screenshot-05" src="https://github.com/Harsh18e/Crypto-iOS/assets/51875128/d80f185c-c4ef-4092-b375-937df56fdf2e">
 <img width="300" alt="Screenshot-03" src="https://github.com/Harsh18e/Crypto-iOS/assets/51875128/2bde775f-ef0d-4a63-ad17-a5933b84c625">
-<img width="300" alt="Screenshot-04" src="https://github.com/Harsh18e/Crypto-iOS/assets/51875128/c5234275-5200-4016-92b7-14725a04b688">
+
 
 ## ⭐️ Features
 
