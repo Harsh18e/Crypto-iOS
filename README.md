@@ -51,10 +51,6 @@ Contributions are welcome! If you have any suggestions, bug fixes, or new featur
 3. Make your changes and test them thoroughly.
 4. Submit a pull request detailing your changes.
 
-## 📜 License
-
-This project is licensed under the [MIT License](LICENSE).
-
 ## ✉️ Contact
 
 For any inquiries or questions, please email us at agarwal.garsh65@gmail.com. We're excited to hear from you and happy to assist you on your crypto journey! 📧💪
