@@ -67,6 +67,6 @@ MIT LICENSE
 
 ## ✉️ Contact
 
-For any inquiries or questions, please email us at agarwal.garsh65@gmail.com. We're excited to hear from you and happy to assist you on your crypto journey! 📧💪
+For any inquiries or questions, please email us at agarwal.harsh65@gmail.com. We're excited to hear from you and happy to assist you on your crypto journey! 📧💪
 
 Now, get ready to track crypto prices like a pro and ride the waves of the market! Happy investing! 🚀💰
