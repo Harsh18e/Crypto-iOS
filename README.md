@@ -12,7 +12,7 @@ Crypto Tracker App is an iOS application that allows you to track cryptocurrency
 
 🌈 **Visually Stunning UI:** Experience a visually appealing user interface with gradient colors that create an immersive and delightful user experience. It's eye candy for crypto enthusiasts! 🎨✨
 
-🔒 **Secure Login:** Log in securely using Firebase authentication, ensuring your personal information and data are protected. Your peace of mind matters! 🔒🔐
+🔒 **Secure Login:** Log in securely using Firebase authentication. Your peace of mind matters! 🔒🔐
 
 🔑 **Google Sign-In:** Sign in with your Google account for a seamless login experience. No need to remember additional passwords! 🌐🔑
 
