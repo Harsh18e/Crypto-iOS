@@ -18,7 +18,7 @@ class CustomNavigationController: UINavigationController {
         navigationBar.barTintColor = .black
         navigationBar.tintColor = .lightPink
         navigationBar.titleTextAttributes = [
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .bold),
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .bold),
             NSAttributedString.Key.foregroundColor: UIColor.lightPink
         ]
     }

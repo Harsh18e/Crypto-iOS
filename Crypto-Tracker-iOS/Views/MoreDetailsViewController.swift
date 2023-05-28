@@ -17,6 +17,11 @@ class MoreDetailsViewController: UIViewController {
     private var hostingController: UIHostingController<ChartView>?
     private weak var viewModel: PrimaryViewModel?
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.topItem?.backButtonTitle = ""
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

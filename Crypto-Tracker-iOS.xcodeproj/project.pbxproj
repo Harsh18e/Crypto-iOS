@@ -14,7 +14,7 @@
 		F53BA94829D7124300C1F202 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53BA94729D7124300C1F202 /* CustomNavigationController.swift */; };
 		F549ABB529B657C400604A02 /* CoinsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F549ABB429B657C400604A02 /* CoinsTableViewCell.xib */; };
 		F549ABBA29B67B4F00604A02 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = F549ABB929B67B4F00604A02 /* Lottie */; };
-		F549ABBC29B67BB700604A02 /* AnimationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F549ABBB29B67BB700604A02 /* AnimationManager.swift */; };
+		F549ABBC29B67BB700604A02 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F549ABBB29B67BB700604A02 /* LoginViewModel.swift */; };
 		F549ABBE29B67C7A00604A02 /* loading_JSON.json in Resources */ = {isa = PBXBuildFile; fileRef = F549ABBD29B67C7A00604A02 /* loading_JSON.json */; };
 		F549ABC029B6803200604A02 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F549ABBF29B6803200604A02 /* GoogleService-Info.plist */; };
 		F549ABC329B6817900604A02 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F549ABC229B6817900604A02 /* FirebaseAnalytics */; };
@@ -101,7 +101,7 @@
 		F52F472B29B60B9C00C25DF1 /* TrendingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrendingTableViewCell.xib; sourceTree = "<group>"; };
 		F53BA94729D7124300C1F202 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		F549ABB429B657C400604A02 /* CoinsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoinsTableViewCell.xib; sourceTree = "<group>"; };
-		F549ABBB29B67BB700604A02 /* AnimationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationManager.swift; sourceTree = "<group>"; };
+		F549ABBB29B67BB700604A02 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		F549ABBD29B67C7A00604A02 /* loading_JSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading_JSON.json; sourceTree = "<group>"; };
 		F549ABBF29B6803200604A02 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F552361529B0D1D2004E8303 /* CoinsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsTableViewCell.swift; sourceTree = "<group>"; };
@@ -309,7 +309,7 @@
 		F59BCA5029C4A0D500D2B5FB /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				F549ABBB29B67BB700604A02 /* AnimationManager.swift */,
+				F549ABBB29B67BB700604A02 /* LoginViewModel.swift */,
 				F552361929B3B1F0004E8303 /* NetworkManager.swift */,
 				F552362129B4C14C004E8303 /* PrimaryViewModel.swift */,
 				F59BCA4D29C3EE1F00D2B5FB /* PersistentStorage.swift */,
@@ -512,7 +512,7 @@
 				F56EE77D2A14F96B00D24522 /* PreviewProvider.swift in Sources */,
 				F5FF697B29CF5515008683E9 /* Colors.swift in Sources */,
 				F58DF9AA29AE4E14009F6966 /* AppDelegate.swift in Sources */,
-				F549ABBC29B67BB700604A02 /* AnimationManager.swift in Sources */,
+				F549ABBC29B67BB700604A02 /* LoginViewModel.swift in Sources */,
 				F56EE77B2A14EA7200D24522 /* ChartView.swift in Sources */,
 				F552361A29B3B1F0004E8303 /* NetworkManager.swift in Sources */,
 				F552361729B0D1D2004E8303 /* CoinsTableViewCell.swift in Sources */,

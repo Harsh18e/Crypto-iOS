@@ -24,11 +24,9 @@ class DetailsViewController: UIViewController {
         dismiss(animated: true) {
             self.navController?.pushViewController(presentedVC, animated: true)
             self.navController?.modalTransitionStyle = .coverVertical
-            self.present(self.navController!, animated: true)
+        //    self.present(self.navController!, animated: true)
         }
-        
     }
-    
     
     @IBOutlet private weak var containerView: CustomUIView!
     @IBOutlet private weak var priceHistoryButton: CustomUIButton!
@@ -56,8 +54,8 @@ class DetailsViewController: UIViewController {
         containerView.layer.sublayers?.removeAll(where: { $0 is CAGradientLayer })
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = containerView.bounds
-        gradientLayer.colors = [UIColor.purpleGray.cgColor, UIColor.black.cgColor]
-        gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
+        gradientLayer.colors = [UIColor.cyan.cgColor, UIColor.black.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0.5, y: -10)
         gradientLayer.endPoint = CGPoint(x: 0.5, y: 1)
         containerView.layer.insertSublayer(gradientLayer, at: 0)
         

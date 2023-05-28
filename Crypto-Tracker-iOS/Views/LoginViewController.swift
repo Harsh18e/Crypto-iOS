@@ -9,57 +9,116 @@ import UIKit
 import Lottie
 import Foundation
 import GoogleSignIn
+import FirebaseAuth
+import Firebase
+import FirebaseCore
 
 class LoginViewController: UIViewController {
-
+    
     // MARK: Private IBOutlets
     @IBOutlet private weak var statusView: CustomUIView!
     @IBOutlet private weak var credLogo: UIView!
     @IBOutlet private weak var downArrow: UIImageView!
     @IBOutlet private weak var dragCircle: CustomUIView!
     @IBOutlet private weak var logoContainerView: CustomUIView!
-    @IBOutlet private weak var statusLabel: UILabel!
-    @IBOutlet private weak var apiStatus: UISegmentedControl!
+    @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet private weak var loadingAnimationView: CustomUIView!
+    
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var toggleButton: UISegmentedControl!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var googleUIView: CustomUIView!
     
     // MARK: Private Properties
     private var isDraggingVertically = false
     private var statusViewFrame: CGPoint!
-    private var isSuccessEnabled: Bool = true
-    private var animationManager: AnimationManager?
+    private var loginViewModel: LoginViewModel?
+    private var loginMethod: LoginType = .email {
+        didSet {
+            updateUIForLoginMethod()
+        }
+    }
     
     // MARK: Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        animationManager = AnimationManager()
+        loginViewModel = LoginViewModel()
         statusViewFrame = statusView.center
-        animationManager?.animateUpAndDown(credLogo)
-        animationManager?.startBlinkTimer(downArrow)
-        apiStatus.isHidden = true
+        loginViewModel?.animateUpAndDown(credLogo)
+        loginViewModel?.startBlinkTimer(downArrow)
+        loginViewModel?.addLayerGradient(containerView)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tappedOnGoogle(_:)))
+        googleUIView.addGestureRecognizer(tapGesture)
+        googleUIView.isUserInteractionEnabled = true
+       
+        updateUIForLoginMethod()
     }
     
     // MARK: Private Methods
-    private func handleResult(_ result: Bool) {
-        DispatchQueue.main.sync {
-            self.statusLabel.text = result ? "success" : "failure"
-            UIView.animate(withDuration: 1, delay: 0) {
-                self.statusLabel.transform = CGAffineTransform(translationX: 0, y: -100)
+    
+    @IBAction func toggleButtonClicked(_ sender: UISegmentedControl) {
+        let selectedIndex = sender.selectedSegmentIndex
+            
+            // Perform actions based on the selected segment
+            switch selectedIndex {
+            case 0:
+                loginMethod = .email
+            case 1:
+                loginMethod = .signUp
+            default:
+                break
             }
-            UIView.animate(withDuration: 1, delay: 0) {
-                self.dragCircle.frame.origin.y += self.view.frame.height
-            }
-            UIView.animate(withDuration: 1, delay: 0) {
-                self.statusView.frame.origin.y -= 10
-            }
-            self.animationManager?.stopLoadingAnimation()
+    }
+    
+    @objc private func tappedOnGoogle(_ sender: Any) {
+        if loginMethod != .google {
+            loginMethod = .google
         }
-        
-        //resetting after 5 sec
-        resetUI()
+    }
+    
+    private func updateUIForLoginMethod() {
+        // Update the UI based on the current login method
+        switch loginMethod {
+        case .email:
+            googleUIView.layer.borderColor = UIColor.clear.cgColor
+            enableTextFields()
+            
+        case .google:
+            googleUIView.layer.borderColor = UIColor.blue.cgColor
+            toggleButton.selectedSegmentIndex = -1
+            disableTextFields()
+            
+        case .signUp:
+            googleUIView.layer.borderColor = UIColor.clear.cgColor
+            enableTextFields()
+        }
+    }
+    
+    private func disableTextFields() {
+        emailTextField.isEnabled = false
+        passwordTextField.isEnabled = false
+        emailTextField.alpha = 0.4
+        passwordTextField.alpha = 0.4
+        passwordTextField.text = ""
+        emailTextField.text = ""
+    }
+    
+    private func enableTextFields() {
+        emailTextField.isEnabled = true
+        passwordTextField.isEnabled = true
+        emailTextField.alpha = 1
+        passwordTextField.alpha = 1
+        passwordTextField.text = ""
+        emailTextField.text = ""
     }
     
     private func resetUI() {
+        
+        updateUIForLoginMethod()
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
             
             guard let strongSelf = self else { return }
@@ -68,12 +127,9 @@ class LoginViewController: UIViewController {
             strongSelf.downArrow.isHidden = false
             strongSelf.credLogo.isHidden = false
             strongSelf.credLogo.center = strongSelf.logoContainerView.center
-            strongSelf.animationManager?.animateUpAndDown(strongSelf.credLogo)
-            strongSelf.animationManager?.stopLoadingAnimation()
+            strongSelf.loginViewModel?.animateUpAndDown(strongSelf.credLogo)
+            strongSelf.loginViewModel?.stopLoadingAnimation()
             
-            UIView.animate(withDuration: 0.8, delay: 0) {
-                strongSelf.statusLabel.transform = CGAffineTransform(translationX: 0, y: 100)
-            }
             UIView.animate(withDuration: 0.8, delay: 0) {
                 strongSelf.dragCircle.center = strongSelf.loadingAnimationView.center
             }
@@ -81,48 +137,47 @@ class LoginViewController: UIViewController {
                 strongSelf.statusView.center = strongSelf.statusViewFrame
                 strongSelf.statusView.center.x = strongSelf.logoContainerView.center.x
             }
+            
+            strongSelf.view.isUserInteractionEnabled = true
         }
     }
     
-    // MARK: Making Network Call
-    private func requestLogin() {
-        let clientID = "281366402228-f0vi7p1g1s8nvu5fm22vpqmf55i56t5q.apps.googleusercontent.com"
-           
-        // Create Google Sign In configuration object.
-        let config = GIDConfiguration(clientID: clientID)
-        GIDSignIn.sharedInstance.configuration = config
-       
-        GIDSignIn.sharedInstance.signIn( withPresenting: self) { signInResult, error in
-            guard error == nil else {
-                self.resetUI()
-                return
+    private func handleLoginResult(_ result: Result<UserType, Error>) {
+        
+        switch result {
+        case .success(let user):
+            
+            switch user {
+            case .firebaseUser(let user):
+                print("Firebase login successful: \(user)")
+                goToHomePage()
+            case .googleUser(let user):
+                print("Firebase login successful: \(user)")
+                goToHomePage()
             }
             
-           // If sign in succeeded, display the app's main content View.
-            UserDefaults.standard.set(true, forKey: Constants.LOGINSTATUS)
-
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "MainViewController")
-            let navigationController = CustomNavigationController(rootViewController: vc)
-            navigationController.modalPresentationStyle = .fullScreen
-            self.present(navigationController, animated: true)
+        case .failure(let error):
+            // Handle login failure
+            print("Login failure: \(error)")
+            self.showAlertController(withTitle: "\(error.localizedDescription)", actionHandler: { action in
+                self.dismiss(animated: true)
+            })
+            self.resetUI()
         }
     }
     
-    // MARK: IBAction - Toggle API
-    @IBAction func toggleApiStatus(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-            case 0:
-                isSuccessEnabled = true
-                break
-            case 1:
-                isSuccessEnabled = false
-                break
-        default:
-            isSuccessEnabled = true
-            break
-        }
+    private func goToHomePage() {
+        
+        self.resetUI()
+        
+        UserDefaults.standard.set(true, forKey: Constants.LOGINSTATUS)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "MainViewController")
+        let navigationController = CustomNavigationController(rootViewController: vc)
+        navigationController.modalPresentationStyle = .fullScreen
+        self.present(navigationController, animated: true)
     }
+
 }
 
 // MARK: Touch Interaction Methods
@@ -133,10 +188,10 @@ extension LoginViewController {
             return
         }
         
-        let location = touch.location(in: logoContainerView)
+        let location = touch.location(in: credLogo)
         if logoContainerView.bounds.contains(location) {
             print("touch started")
-            animationManager?.stopLogoAnimation(credLogo)
+            loginViewModel?.stopLogoAnimation(credLogo)
             isDraggingVertically = true
         }
     }
@@ -146,29 +201,31 @@ extension LoginViewController {
             return
         }
         let location = touch.location(in: view)
-        credLogo.frame.origin.y = location.y - credLogo.bounds.height
+        credLogo.center.y = location.y - credLogo.bounds.height
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         print("touch finished")
         guard isDraggingVertically, let touch = touches.first else {
-            animationManager?.animateUpAndDown(credLogo)
+            loginViewModel?.animateUpAndDown(credLogo)
             return
         }
         let location = touch.location(in: dragCircle)
         
         if dragCircle.bounds.contains(location) {
+            
             self.credLogo.center = self.dragCircle.center
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
-                guard let strongSelf = self else { return }
-                strongSelf.downArrow.isHidden = true
-                strongSelf.credLogo.isHidden = true
-                strongSelf.animationManager?.startLoadingAnimation(strongSelf.loadingAnimationView)
+            downArrow.isHidden = true
+            credLogo.isHidden = true
+            loginViewModel?.startLoadingAnimation(loadingAnimationView)
+            view.isUserInteractionEnabled = false
+            
+            loginViewModel?.requestLogin(self,loginMethod) { result in
+                self.handleLoginResult(result)
             }
-            requestLogin()
         } else {
             credLogo.center = logoContainerView.center
-            animationManager?.animateUpAndDown(credLogo)
+            loginViewModel?.animateUpAndDown(credLogo)
         }
         
         isDraggingVertically = false

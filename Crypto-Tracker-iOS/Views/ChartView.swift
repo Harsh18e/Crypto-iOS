@@ -98,7 +98,11 @@ extension ChartView {
         VStack {
             Text(maxValue.convertToShortString())
             Spacer()
+            Text((maxValue*0.75 + minValue*0.25).convertToShortString())
+            Spacer()
             Text(((maxValue + minValue)/2).convertToShortString())
+            Spacer()
+            Text((minValue*0.75 + maxValue*0.25).convertToShortString())
             Spacer()
             Text(minValue.convertToShortString())
         }.foregroundColor(Color( UIColor.whiteGray))

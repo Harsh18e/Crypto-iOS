@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import FirebaseAuth
+import GoogleSignIn
 
 enum NetworkError: Error {
     case unableToParse
@@ -13,3 +15,13 @@ enum NetworkError: Error {
     case BadURL
 }
 
+enum LoginType {
+    case email
+    case google
+    case signUp
+}
+
+enum UserType {
+    case firebaseUser(User)
+    case googleUser(GIDGoogleUser)
+}

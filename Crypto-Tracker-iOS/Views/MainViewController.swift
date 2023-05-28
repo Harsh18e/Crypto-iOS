@@ -11,28 +11,35 @@ import GoogleSignIn
 class MainViewController: UIViewController, ViewModelDelegate {
     func updateUI() {
         tableView.reloadData()
+        LaunchView.isHidden = true
     }
 
-    @IBAction func didTapLogOut(_ sender: Any) {
+    @objc func didTapLogOut(_ sender: Any) {
         UserDefaults.standard.set(false, forKey: Constants.LOGINSTATUS)
         
         GIDSignIn.sharedInstance.signOut()
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: String(describing: LoginViewController.self)) as! LoginViewController
         
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true)
+        self.navigationController?.setViewControllers([vc], animated: true)
     }
   
+    @IBOutlet weak var LaunchView: UIView!
     @IBOutlet weak var tableView: UITableView!
-    private var viewModel: PrimaryViewModel?
+    var viewModel: PrimaryViewModel?
     
     // MARK: Lifecycle methods
+    
+    override func loadView() {
+        super.loadView()
+        viewModel = PrimaryViewModel()
+        viewModel?.makeNetworkCall()
+        navigationItem.setHidesBackButton(true, animated: false)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel = PrimaryViewModel()
-        viewModel?.makeNetworkCall()
         viewModel?.delegate = self
         
         tableView.register(UINib(nibName: CoinsTableViewCell.getNibName(), bundle: nil), forCellReuseIdentifier: "coinCell")
@@ -43,6 +50,12 @@ class MainViewController: UIViewController, ViewModelDelegate {
         if #available(iOS 15.0, *) {
             tableView.sectionHeaderTopPadding = 0
         }
+        title = "Crypto HUB"
+        let signOutImage = UIImage(systemName: "power")
+
+        let signOutBarButtonItem = UIBarButtonItem(image: signOutImage, style: .plain, target: self, action: #selector(didTapLogOut(_:)))
+        signOutBarButtonItem.title = "Sign Out"
+        navigationItem.rightBarButtonItem = signOutBarButtonItem
     }
 }
 

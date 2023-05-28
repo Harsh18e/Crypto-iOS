@@ -19,7 +19,7 @@ class TrendingTableViewCell: UITableViewCell {
             collectionView.reloadData()
         }
     }
-    var delegate:TrendingTableViewCellDelegate?
+    var delegate: TrendingTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -60,7 +60,6 @@ extension UIView {
     }
     
     func loadViewFromNib (nibName: String) -> UIView? {
-        let bundle = Bundle(for: type(of: self))
         let nib = UINib (nibName: nibName, bundle: nil)
         return nib.instantiate(withOwner: self, options: nil).first as? UIView
     }
@@ -112,6 +111,45 @@ extension UIViewController {
         let className = NSStringFromClass(self).components(separatedBy: ".").last!
         return className
     }
+    
+    func showAlertController(withTitle title: String?,
+                             message: String? = nil,
+                             actionTitle: String = "Okay",
+                             actionAlertStyle: UIAlertAction.Style = .default,
+                             isShowCancel: Bool = false,
+                             cancelActionTitle: String = "CANCEL",
+                             cancelActionAlertStyle: UIAlertAction.Style = .default,
+                             actionHandler: ((UIAlertAction?) -> Void)? = nil,
+                             cancelHandler: ((UIAlertAction?) -> Void)? = nil,
+                             completion: (() -> Void)? = nil, viewController: UIViewController? = nil, cascadeAlerts: Bool = true) {
+
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+
+        if isShowCancel {
+            alertController.addAction(UIAlertAction(title: cancelActionTitle, style: cancelActionAlertStyle, handler: cancelHandler))
+        }
+
+        alertController.addAction(UIAlertAction(title: actionTitle, style: actionAlertStyle, handler: actionHandler))
+
+        if let viewController = viewController {
+            viewController.present(alertController, animated: true, completion: nil)
+            return
+        }
+
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let sceneDelegate = windowScene.delegate as? SceneDelegate,
+           let window = sceneDelegate.window, let vc = window.rootViewController {
+            
+            if let vc = vc.presentedViewController, vc is UIAlertController, cascadeAlerts {
+                alertController.dismiss(animated: false, completion: {
+                    vc.present(alertController, animated: true, completion: nil)
+                })
+            } else {
+                vc.present(alertController, animated: true, completion: nil)
+            }
+        }
+    }
+    
 }
 
 @IBDesignable
