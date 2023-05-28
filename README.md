@@ -4,6 +4,14 @@ Crypto Tracker App is an iOS application that allows you to track cryptocurrency
 
 ![App Demo](demo.gif)
 
+## Screenshots
+
+<img width="300" alt="Screenshot-01" src="https://github.com/Harsh18e/Crypto-iOS/assets/51875128/72a3ae90-ec60-4016-a141-f6f83a1110e4">
+<img width="300" alt="Screenshot-02" src="https://github.com/Harsh18e/Crypto-iOS/assets/51875128/7d647664-4f7c-45d8-abdb-c12cd362e4c1">
+<img width="300" alt="Screenshot-05" src="https://github.com/Harsh18e/Crypto-iOS/assets/51875128/d80f185c-c4ef-4092-b375-937df56fdf2e">
+<img width="300" alt="Screenshot-03" src="https://github.com/Harsh18e/Crypto-iOS/assets/51875128/2bde775f-ef0d-4a63-ad17-a5933b84c625">
+<img width="300" alt="Screenshot-04" src="https://github.com/Harsh18e/Crypto-iOS/assets/51875128/c5234275-5200-4016-92b7-14725a04b688">
+
 ## ⭐️ Features
 
 ✅ **Live Data:** Get real-time cryptocurrency prices and data, right at your fingertips! 💸💹
@@ -41,14 +49,6 @@ Crypto Tracker App is an iOS application that allows you to track cryptocurrency
 3. Explore the app's exciting features, view cryptocurrency prices, and track price trends with just a few taps! 🚀💸
 4. Interact with the visually stunning graphs to analyze data and make informed decisions. Spot the opportunities! 📊🔍
 5. Log out when you're done exploring the crypto world. But remember, the market never sleeps! 😄
-
-## Screenshots
-
-<img width="200" alt="Screenshot-01" src="https://github.com/Harsh18e/Crypto-iOS/assets/51875128/72a3ae90-ec60-4016-a141-f6f83a1110e4">
-<img width="200" alt="Screenshot-02" src="https://github.com/Harsh18e/Crypto-iOS/assets/51875128/7d647664-4f7c-45d8-abdb-c12cd362e4c1">
-<img width="200" alt="Screenshot-05" src="https://github.com/Harsh18e/Crypto-iOS/assets/51875128/d80f185c-c4ef-4092-b375-937df56fdf2e">
-<img width="200" alt="Screenshot-03" src="https://github.com/Harsh18e/Crypto-iOS/assets/51875128/2bde775f-ef0d-4a63-ad17-a5933b84c625">
-<img width="200" alt="Screenshot-04" src="https://github.com/Harsh18e/Crypto-iOS/assets/51875128/c5234275-5200-4016-92b7-14725a04b688">
 
 ## 🤝 Contributing
 
