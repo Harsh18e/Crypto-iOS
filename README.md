@@ -42,13 +42,13 @@ Crypto Tracker App is an iOS application that allows you to track cryptocurrency
 4. Interact with the visually stunning graphs to analyze data and make informed decisions. Spot the opportunities! 📊🔍
 5. Log out when you're done exploring the crypto world. But remember, the market never sleeps! 😄
 
-### Screenshots
+## Screenshots
 
-<img src="https://github.com/ishan18/FashionSimulator/blob/master/screenshots/home.jpeg" alt="Home Screen" width="250px" height="400px">
-<img src="https://github.com/ishan18/FashionSimulator/blob/master/screenshots/shirts.jpeg" alt="Home Screen" width="250px" height="400px">
-<img src="https://github.com/ishan18/FashionSimulator/blob/master/screenshots/trousers.jpeg" alt="Home Screen" width="250px" height="400px">
-<img src="https://github.com/ishan18/FashionSimulator/blob/master/screenshots/ankleboots.jpeg" alt="Home Screen" width="250px" height="400px">
-<img src="https://github.com/ishan18/FashionSimulator/blob/master/screenshots/sneakers.jpeg" alt="Home Screen" width="250px" height="400px">
+<img width="200" alt="Screenshot-01" src="https://github.com/Harsh18e/Crypto-iOS/assets/51875128/72a3ae90-ec60-4016-a141-f6f83a1110e4">
+<img width="200" alt="Screenshot-02" src="https://github.com/Harsh18e/Crypto-iOS/assets/51875128/7d647664-4f7c-45d8-abdb-c12cd362e4c1">
+<img width="200" alt="Screenshot-05" src="https://github.com/Harsh18e/Crypto-iOS/assets/51875128/d80f185c-c4ef-4092-b375-937df56fdf2e">
+<img width="200" alt="Screenshot-03" src="https://github.com/Harsh18e/Crypto-iOS/assets/51875128/2bde775f-ef0d-4a63-ad17-a5933b84c625">
+<img width="200" alt="Screenshot-04" src="https://github.com/Harsh18e/Crypto-iOS/assets/51875128/c5234275-5200-4016-92b7-14725a04b688">
 
 ## 🤝 Contributing
 
