@@ -44,6 +44,12 @@ Crypto Tracker App is an iOS application that allows you to track cryptocurrency
 
 ### Screenshots
 
+<img src="https://github.com/ishan18/FashionSimulator/blob/master/screenshots/home.jpeg" alt="Home Screen" width="250px" height="400px">
+<img src="https://github.com/ishan18/FashionSimulator/blob/master/screenshots/shirts.jpeg" alt="Home Screen" width="250px" height="400px">
+<img src="https://github.com/ishan18/FashionSimulator/blob/master/screenshots/trousers.jpeg" alt="Home Screen" width="250px" height="400px">
+<img src="https://github.com/ishan18/FashionSimulator/blob/master/screenshots/ankleboots.jpeg" alt="Home Screen" width="250px" height="400px">
+<img src="https://github.com/ishan18/FashionSimulator/blob/master/screenshots/sneakers.jpeg" alt="Home Screen" width="250px" height="400px">
+
 ## 🤝 Contributing
 
 Contributions are welcome! If you have any suggestions, bug fixes, or new features to add, please follow these steps:
