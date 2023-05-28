@@ -29,6 +29,7 @@ Crypto Tracker App is an iOS application that allows you to track cryptocurrency
 ## 🛠 Technologies Used
 
 - Swift 5
+- UIKit
 - Xcode
 - Firebase
 - Google Sign-In
